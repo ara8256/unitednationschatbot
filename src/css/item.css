@@ -1,0 +1,31 @@
+.selectable-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.selectable-item {
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-position: center;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    overflow: hidden; /* Ensure content does not overflow */
+    object-fit: cover; /* Make sure the image covers the entire area without stretching */
+}
+
+.selectable-item-container:hover .selectable-item {
+    border-color: #007bff;
+    transform: scale(1.05); /* Slightly scale the item on hover */
+}
+
+.item-name {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+    text-align: center;
+}
