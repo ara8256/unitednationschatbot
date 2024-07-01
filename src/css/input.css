@@ -16,3 +16,15 @@
     width: 24px;
     height: 24px;
 }
+
+/* Add this to your input.css */
+.no-outline:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Optionally, add a rule to remove any border on focus */
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
