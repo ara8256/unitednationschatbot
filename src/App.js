@@ -9,9 +9,8 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <ItemList />?
-      <MessageBox />
-      <ChatInput />
+      <ItemList />
+     
     </div>
   );
 }
