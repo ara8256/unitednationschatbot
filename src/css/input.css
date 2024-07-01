@@ -1,0 +1,18 @@
+
+
+.chat-input::placeholder {
+    color: white;
+}
+
+.send-button {
+    background: none;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+.send-button svg {
+    width: 24px;
+    height: 24px;
+}
