@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SelectableItem from './items';
 import '../css/itemlist.css';
 import humanrights from "../picture/humanrights.png";
@@ -27,6 +27,7 @@ const ItemList = () => {
         { id: 9, name: 'International Law', image: law },
     ];
   
+    const messageRef = useRef(null);
 
     const api = ["sec_B2VjICMT2HfKg5KPZsY9yiNhMIddSRwX","sec_iKqjUWZlARwiiefXK4WrbetJzvyzZWWy","sec_B2VjICMT2HfKg5KPZsY9yiNhMIddSRwX","sec_XZvK6SEbegstMFhymP97jS69ytgcqLwx","sec_XZvK6SEbegstMFhymP97jS69ytgcqLwx","sec_XZvK6SEbegstMFhymP97jS69ytgcqLwx","sec_B2VjICMT2HfKg5KPZsY9yiNhMIddSRwX","sec_BMxkO2hJCIIygnXJBpkOitQK1sueyGcY","sec_BMxkO2hJCIIygnXJBpkOitQK1sueyGcY"]
     const source_key = ["src_UOoUQ15kLDTEQLDNJOANL","src_3vLXAYFzNMZyuzJrhUoKr","src_iSCeb58Yv0a7czrRHQNsc","src_Ey6AzBVNatUkNpXbugLbq","src_LfREqxvEzfWqbk1wwePDK","src_Eaj0S27tTIFR4OKn7J7wm","src_YTy6HMOYzDFo1Tgi4Myff","src_XJyUN41lLcEbaqHfyKOfs","src_yvFR1a8zcVX5WJAyG9ibX"]
@@ -38,6 +39,9 @@ const ItemList = () => {
 
     const handleClick = (id) => {
         setSelectedItemId(id);
+        if (messageRef.current) {
+            messageRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     const handleSendMessage = (message) => {
@@ -87,7 +91,7 @@ const ItemList = () => {
         if (messages.length > 0) {
             sendtoapi(selectedItemId);
         }
-    }, [messages]);
+    }, [text]);
 
 
     useEffect(() => {
@@ -99,7 +103,12 @@ const ItemList = () => {
 
 
     useEffect(() => {
-        setMessages([]); // Clear the messages array
+        setMessages([]); 
+        if (selectedItemId !== null && messageRef.current) {
+            messageRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Clear the messages array
     }, [selectedItemId]);
 
     return (
@@ -134,10 +143,10 @@ const ItemList = () => {
                 </div>
             </div>
             {selectedItemId && (
-                <>
+                <div ref={messageRef}>
                     <MessageBox messages={messages} />
                     <ChatInput onSendMessage={handleSendMessage} />
-                </>
+                </div>
             )}
         </>
     );

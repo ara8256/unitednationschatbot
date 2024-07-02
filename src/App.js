@@ -5,11 +5,13 @@ import MessageBox from './component/messagebox';
 import Navbar from './component/novbar';
  import ChatInput from './component/inpuutform';
 import ItemList from './component/itemlist';
+import Footer from './component/footer';
 function App() {
   return (
     <div className="App">
       <Navbar />
       <ItemList />
+      <Footer />
      
     </div>
   );

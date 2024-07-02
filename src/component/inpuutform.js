@@ -50,7 +50,7 @@ const ChatInput = ({ onSendMessage }) => {
     };
 
     return (
-        <div className="container">
+        <div className="container mb-3">
             <div className="row justify-content-center">
                 <div className="col-12 col-sm-10 col-md-8 col-lg-6 mt-3">
                     <form onSubmit={handleSubmit}>
