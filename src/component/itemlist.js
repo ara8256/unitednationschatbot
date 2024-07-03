@@ -14,6 +14,7 @@ import ChatInput from './inpuutform';
 import MessageBox from './messagebox';
 import axios from 'axios';
 
+
 const ItemList = () => {
     const items = [
         { id: 1, name: 'Security Concil', image: securityconsil },
@@ -72,7 +73,6 @@ const ItemList = () => {
             .post("https://api.chatpdf.com/v1/chats/message", data, config)
             .then((response) => {
                 setResponseMessage(response.data.content)
-                
                 setErrorMessage(''); // Clear any previous errors
             })
             .catch((error) => {
@@ -83,9 +83,25 @@ const ItemList = () => {
             });
     };
 
+
+
+
     const sendtoapi = (selectedItemId) => {
         handleSendMessageApi1(api[selectedItemId-1], source_key[selectedItemId-1])
     };
+
+
+
+
+
+
+
+  // Call the function (you can use this in an event handler or a useEffect)
+
+  
+  // Call the function (you can use this in an event handler or a useEffect)
+
+  
 
     useEffect(() => {
         if (messages.length > 0) {
@@ -146,7 +162,7 @@ const ItemList = () => {
                 <div ref={messageRef}>
                     <MessageBox messages={messages} />
                     <ChatInput onSendMessage={handleSendMessage} />
-                </div>
+                                </div>
             )}
         </>
     );
