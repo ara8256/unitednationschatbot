@@ -22,18 +22,20 @@ const LanguageDropdown = ({ onSelectLanguage }) => {
     ];
 
     return (
-        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-            <DropdownToggle caret>
-                {selectedLanguage}
-            </DropdownToggle>
-            <DropdownMenu>
-                {languages.map(language => (
-                    <DropdownItem key={language.value} onClick={() => handleSelect(language)}>
-                        {language.label}
-                    </DropdownItem>
-                ))}
-            </DropdownMenu>
-        </Dropdown>
+         <div className="p-2 ">
+            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                <DropdownToggle caret>
+                    {selectedLanguage}
+                </DropdownToggle>
+                <DropdownMenu>
+                    {languages.map(language => (
+                        <DropdownItem key={language.value} onClick={() => handleSelect(language)}>
+                            {language.label}
+                        </DropdownItem>
+                    ))}
+                </DropdownMenu>
+            </Dropdown>
+        </div>
     );
 };
 
